@@ -120,6 +120,7 @@ class Api(object):
         支持：支持通过车牌号、停车场编号分页查询车辆包期信息。
 
         @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%8A%9F%E8%83%BD#bb7cb58c
+        :param path:
         :param requests_request_kwargs_json:
         :param requests_response_callable:
         :param requests_request_args:
@@ -128,8 +129,11 @@ class Api(object):
         """
         requests_request_kwargs_json = Dict(requests_request_kwargs_json)
         requests_request_kwargs = Dict(requests_request_kwargs)
-        requests_request_headers = self.get_requests_request_headers(method="POST", path=path,
-                                                                     requests_request_headers=requests_request_kwargs.headers)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
         requests_request_kwargs = Dict({
             "url": f"{self.host}{path}",
             "method": "POST",
@@ -151,6 +155,7 @@ class Api(object):
 
     def api_pms_v1_car_charge(
             self,
+            path="/artemis/api/pms/v1/car/charge",
             requests_request_kwargs_json: dict = {},
             requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0,
             requests_request_args: Iterable = tuple(),
@@ -164,6 +169,7 @@ class Api(object):
         支持：支持通过车牌号进行特定停车场的包期充值。
 
         @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%8A%9F%E8%83%BD#bc8e5872
+        :param path:
         :param requests_request_kwargs_json:
         :param requests_response_callable:
         :param requests_request_args:
@@ -173,9 +179,11 @@ class Api(object):
 
         requests_request_kwargs_json = Dict(requests_request_kwargs_json)
         requests_request_kwargs = Dict(requests_request_kwargs)
-        path = "/artemis/api/pms/v1/car/charge"
-        requests_request_headers = self.get_requests_request_headers(method="POST", path=path,
-                                                                     requests_request_headers=requests_request_kwargs.headers)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
         requests_request_kwargs = Dict({
             "url": f"{self.host}{path}",
             "method": "POST",
@@ -197,6 +205,7 @@ class Api(object):
 
     def api_pms_v1_car_charge_deletion(
             self,
+            path="/artemis/api/pms/v1/car/charge/deletion",
             requests_request_kwargs_json: dict = {},
             requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0,
             requests_request_args: Iterable = tuple(),
@@ -210,6 +219,7 @@ class Api(object):
         支持：支持通过车牌号、停车库编号取消包期；停车库编号可为空，为空时取消平台所有包期。
 
         @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%8A%9F%E8%83%BD#d95589de
+        :param path:
         :param requests_request_kwargs_json:
         :param requests_response_callable:
         :param requests_request_args:
@@ -219,9 +229,11 @@ class Api(object):
 
         requests_request_kwargs_json = Dict(requests_request_kwargs_json)
         requests_request_kwargs = Dict(requests_request_kwargs)
-        path = "/artemis/api/pms/v1/car/charge/deletion"
-        requests_request_headers = self.get_requests_request_headers(method="POST", path=path,
-                                                                     requests_request_headers=requests_request_kwargs.headers)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
         requests_request_kwargs = Dict({
             "url": f"{self.host}{path}",
             "method": "POST",
@@ -243,6 +255,7 @@ class Api(object):
 
     def api_pms_v_1_tempCarInRecords_page(
             self,
+            path="/artemis/api/pms/v1/tempCarInRecords/page",
             requests_request_kwargs_json: dict = {},
             requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
             requests_request_args: Iterable = tuple(),
@@ -256,6 +269,7 @@ class Api(object):
         支持：支持通过停车库的唯一标识、车牌号码（模糊）、停车时长及停车库信息查询场内车停车信息。
 
         @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%8A%9F%E8%83%BD#c4292e21
+        :param path:
         :param requests_request_kwargs_json:
         :param requests_response_callable:
         :param requests_request_args:
@@ -265,9 +279,11 @@ class Api(object):
 
         requests_request_kwargs_json = Dict(requests_request_kwargs_json)
         requests_request_kwargs = Dict(requests_request_kwargs)
-        path = "/artemis/api/pms/v1/tempCarInRecords/page"
-        requests_request_headers = self.get_requests_request_headers(method="POST", path=path,
-                                                                     requests_request_headers=requests_request_kwargs.headers)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
         requests_request_kwargs = Dict({
             "url": f"{self.host}{path}",
             "method": "POST",
@@ -289,6 +305,7 @@ class Api(object):
 
     def api_resource_v2_vehicle_advance_vehicleList(
             self,
+            path="/artemis/api/resource/v2/vehicle/advance/vehicleList",
             requests_request_kwargs_json: dict = {},
             requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
             requests_request_args: Iterable = tuple(),
@@ -301,6 +318,7 @@ class Api(object):
         注：若指定多个查询条件，表示将这些查询条件进行“与”的组合后进行精确查询 当一个车辆属于多个区域时，查询时会返回多条记录。当返回字段对应的值为空时，该字段不返回。
 
         @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#d3f8970f
+        :param path:
         :param requests_request_kwargs_json:
         :param requests_response_callable:
         :param requests_request_args:
@@ -310,9 +328,11 @@ class Api(object):
 
         requests_request_kwargs_json = Dict(requests_request_kwargs_json)
         requests_request_kwargs = Dict(requests_request_kwargs)
-        path = "/artemis/api/resource/v2/vehicle/advance/vehicleList"
-        requests_request_headers = self.get_requests_request_headers(method="POST", path=path,
-                                                                     requests_request_headers=requests_request_kwargs.headers)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
         requests_request_kwargs = Dict({
             "url": f"{self.host}{path}",
             "method": "POST",
@@ -334,6 +354,7 @@ class Api(object):
 
     def api_resource_v1_vehicle_batch_add(
             self,
+            path="/artemis/api/resource/v1/vehicle/batch/add",
             requests_request_kwargs_json: dict = {},
             requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
             requests_request_args: Iterable = tuple(),
@@ -347,6 +368,7 @@ class Api(object):
         若需支持批量添加的后续业务处理，请求需指定每个车辆的clientId，服务端完成添加后将生成的车辆indexCode与此clientId绑定返回，服务端不对clientId做校验。
 
         @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#bb06a569
+        :param path:
         :param requests_request_kwargs_json:
         :param requests_response_callable:
         :param requests_request_args:
@@ -356,9 +378,11 @@ class Api(object):
 
         requests_request_kwargs_json = Dict(requests_request_kwargs_json)
         requests_request_kwargs = Dict(requests_request_kwargs)
-        path = "/artemis/api/resource/v1/vehicle/batch/add"
-        requests_request_headers = self.get_requests_request_headers(method="POST", path=path,
-                                                                     requests_request_headers=requests_request_kwargs.headers)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
         requests_request_kwargs = Dict({
             "url": f"{self.host}{path}",
             "method": "POST",
@@ -380,6 +404,7 @@ class Api(object):
 
     def api_resource_v1_vehicle_single_update(
             self,
+            path="/artemis/api/resource/v1/vehicle/single/update",
             requests_request_kwargs_json: dict = {},
             requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0,
             requests_request_args: Iterable = tuple(),
@@ -391,6 +416,7 @@ class Api(object):
         根据车辆编号修改车辆信息。
 
         @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#c805b274
+        :param path:
         :param requests_request_kwargs_json:
         :param requests_response_callable:
         :param requests_request_args:
@@ -400,9 +426,11 @@ class Api(object):
 
         requests_request_kwargs_json = Dict(requests_request_kwargs_json)
         requests_request_kwargs = Dict(requests_request_kwargs)
-        path = "/artemis/api/resource/v1/vehicle/single/update"
-        requests_request_headers = self.get_requests_request_headers(method="POST", path=path,
-                                                                     requests_request_headers=requests_request_kwargs.headers)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
         requests_request_kwargs = Dict({
             "url": f"{self.host}{path}",
             "method": "POST",
@@ -424,6 +452,7 @@ class Api(object):
 
     def api_resource_v1_vehicle_batch_delete(
             self,
+            path="/artemis/api/resource/v1/vehicle/batch/delete",
             requests_request_kwargs_json: dict = {},
             requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
             requests_request_args: Iterable = tuple(),
@@ -435,6 +464,7 @@ class Api(object):
         根据车辆编码删除车辆。
 
         @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#b250bd27
+        :param path:
         :param requests_request_kwargs_json:
         :param requests_response_callable:
         :param requests_request_args:
@@ -444,9 +474,11 @@ class Api(object):
 
         requests_request_kwargs_json = Dict(requests_request_kwargs_json)
         requests_request_kwargs = Dict(requests_request_kwargs)
-        path = "/artemis/api/resource/v1/vehicle/batch/delete"
-        requests_request_headers = self.get_requests_request_headers(method="POST", path=path,
-                                                                     requests_request_headers=requests_request_kwargs.headers)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
         requests_request_kwargs = Dict({
             "url": f"{self.host}{path}",
             "method": "POST",
