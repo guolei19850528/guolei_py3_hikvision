@@ -497,3 +497,249 @@ class Api(object):
             requests_request_args=requests_request_args,
             requests_request_kwargs=requests_request_kwargs
         )
+
+    def api_resource_v1_regions_root(
+            self,
+            path="/artemis/api/resource/v1/regions/root",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        获取根区域信息
+
+        获取根区域信息。
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+
+        requests_request_kwargs_json = Dict(requests_request_kwargs_json)
+        requests_request_kwargs = Dict(requests_request_kwargs)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
+        requests_request_kwargs = Dict({
+            "url": f"{self.host}{path}",
+            "method": "POST",
+            "verify": False,
+            "headers": {
+                **requests_request_headers,
+            },
+            "json": {
+                **requests_request_kwargs_json,
+                **requests_request_kwargs.json,
+            },
+            **requests_request_kwargs,
+        })
+        return requests_request(
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_irds_v2_region_nodesByParams(
+            self,
+            path="/artemis/api/irds/v2/region/nodesByParams",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        查询区域列表v2
+
+        根据查询条件查询区域列表信息，主要用于区域信息查询过滤。
+
+        相对V1接口，支持级联场景的区域查询。
+
+        当返回字段对应的值为空时，该字段不返回。
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+
+        requests_request_kwargs_json = Dict(requests_request_kwargs_json)
+        requests_request_kwargs = Dict(requests_request_kwargs)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
+        requests_request_kwargs = Dict({
+            "url": f"{self.host}{path}",
+            "method": "POST",
+            "verify": False,
+            "headers": {
+                **requests_request_headers,
+            },
+            "json": {
+                **requests_request_kwargs_json,
+                **requests_request_kwargs.json,
+            },
+            **requests_request_kwargs,
+        })
+        return requests_request(
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v2_regions_subRegions(
+            self,
+            path="/artemis/api/resource/v2/regions/subRegions",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        根据区域编号获取下一级区域列表v2
+
+        根据用户请求的资源类型和资源权限获取父区域的下级区域列表，主要用于逐层获取父区域的下级区域信息，例如监控点预览业务的区域树的逐层获取。下级区域只包括直接下级子区域
+
+        。注：查询区域管理权限（resourceType为region），若父区域的子区域无权限、但是其孙区域有权限时，会返回该无权限的子区域，但是该区域的available标记为false（表示无权限）
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3#cd531e45
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+
+        requests_request_kwargs_json = Dict(requests_request_kwargs_json)
+        requests_request_kwargs = Dict(requests_request_kwargs)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
+        requests_request_kwargs = Dict({
+            "url": f"{self.host}{path}",
+            "method": "POST",
+            "verify": False,
+            "headers": {
+                **requests_request_headers,
+            },
+            "json": {
+                **requests_request_kwargs_json,
+                **requests_request_kwargs.json,
+            },
+            **requests_request_kwargs,
+        })
+        return requests_request(
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_regions(
+            self,
+            path="/artemis/api/resource/v1/regions",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        分页获取区域列表
+
+        获取区域列表接口可用来全量同步区域信息，返回结果分页展示。
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3#d0c1cc14
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+
+        requests_request_kwargs_json = Dict(requests_request_kwargs_json)
+        requests_request_kwargs = Dict(requests_request_kwargs)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
+        requests_request_kwargs = Dict({
+            "url": f"{self.host}{path}",
+            "method": "POST",
+            "verify": False,
+            "headers": {
+                **requests_request_headers,
+            },
+            "json": {
+                **requests_request_kwargs_json,
+                **requests_request_kwargs.json,
+            },
+            **requests_request_kwargs,
+        })
+        return requests_request(
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_region_regionCatalog_regionInfo(
+            self,
+            path="/artemis/api/resource/v1/region/regionCatalog/regionInfo",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        根据编号获取区域详细信息
+
+        根据区域编号查询区域详细信息及总条数，主要用于区域详细信息展示。
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3#e8a9bcc2
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+
+        requests_request_kwargs_json = Dict(requests_request_kwargs_json)
+        requests_request_kwargs = Dict(requests_request_kwargs)
+        requests_request_headers = self.get_requests_request_headers(
+            method="POST",
+            path=path,
+            requests_request_headers=requests_request_kwargs.headers
+        )
+        requests_request_kwargs = Dict({
+            "url": f"{self.host}{path}",
+            "method": "POST",
+            "verify": False,
+            "headers": {
+                **requests_request_headers,
+            },
+            "json": {
+                **requests_request_kwargs_json,
+                **requests_request_kwargs.json,
+            },
+            **requests_request_kwargs,
+        })
+        return requests_request(
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
