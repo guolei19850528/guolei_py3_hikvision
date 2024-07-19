@@ -106,6 +106,7 @@ class Api(object):
 
     def api_pms_v1_car_charge_page(
             self,
+            path="/artemis/api/pms/v1/car/charge/page",
             requests_request_kwargs_json: dict = {},
             requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
             requests_request_args: Iterable = tuple(),
@@ -127,7 +128,6 @@ class Api(object):
         """
         requests_request_kwargs_json = Dict(requests_request_kwargs_json)
         requests_request_kwargs = Dict(requests_request_kwargs)
-        path = "/artemis/api/pms/v1/car/charge/page"
         requests_request_headers = self.get_requests_request_headers(method="POST", path=path,
                                                                      requests_request_headers=requests_request_kwargs.headers)
         requests_request_kwargs = Dict({
