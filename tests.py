@@ -10,14 +10,7 @@ class HikvisionISCTestCase(unittest.TestCase):
             ak="20552343",
             sk="4h9rlhpPLRmjW0pTuow1"
         )
-        print(
-            hikvision_isc_api.api_resource_v1_card_cardList(
-                requests_request_kwargs_json={
-                    "pageNo":1,
-                    "pageSize":10,
-                }
-            )
-        )
+        print(hikvision_isc_api.requests_request_with_json("/aaa"))
         self.assertTrue(True, "Test Failed")  # add assertion here
 
 
