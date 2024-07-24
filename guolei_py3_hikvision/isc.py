@@ -113,22 +113,21 @@ class Api(object):
             requests_request_kwargs: dict = {},
     ):
         """
-
-        :param path:
-        :param requests_request_kwargs_json:
-        :param requests_response_callable:
-        :param requests_request_args:
-        :param requests_request_kwargs:
-        :return:
+        使用json请求接口
 
         @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1
+        :param path: example /artemis/api/resource/v1/regions/root
+        :param requests_request_kwargs_json: json data
+        :param requests_response_callable: guolei_py3_requests.RequestsResponseCallable instance
+        :param requests_request_args: guolei_py3_requests.requests_request(*requests_request_args, **requests_request_kwargs)
+        :param requests_request_kwargs: guolei_py3_requests.requests_request(*requests_request_args, **requests_request_kwargs)
+        :return:
         """
         if not isinstance(path, str):
             raise TypeError("path must be type string")
         if not len(path):
             raise ValueError("path must be type string and not empty")
-        if not path.startswith("/artemis"):
-            path = f"/artemis/{path[1:] if path.startswith('/') else path}"
+        path = f"/{path}" if not path.startswith('/') else path
         requests_request_kwargs_json = Dict(requests_request_kwargs_json)
         requests_request_kwargs = Dict(requests_request_kwargs)
         requests_request_headers = self.get_requests_request_headers(
