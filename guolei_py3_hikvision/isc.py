@@ -104,7 +104,7 @@ class Api(object):
         requests_request_headers["x-ca-signature"] = self.signature(s=s)
         return requests_request_headers
 
-    def requests_request_with_json(
+    def requests_request_with_json_post(
             self,
             path: str = "",
             requests_request_kwargs_json: dict = {},
