@@ -933,3 +933,439 @@ class Api(object):
             requests_request_args=requests_request_args,
             requests_request_kwargs=requests_request_kwargs
         )
+
+    def api_resource_v1_vehicle_batch_add(
+            self,
+            path: str = "/artemis/api/resource/v1/vehicle/batch/add",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        批量添加车辆
+
+        单个添加车辆信息接口，注意，车辆的必选字段必须都包括在入参中。
+
+        若需支持批量添加的后续业务处理，请求需指定每个车辆的clientId，服务端完成添加后将生成的车辆indexCode与此clientId绑定返回，服务端不对clientId做校验。
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#bb06a569
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_vehicle_single_update(
+            self,
+            path: str = "/artemis/api/resource/v1/vehicle/single/update",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        修改车辆
+
+        根据车辆编号修改车辆信息。
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#c805b274
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_vehicle_batch_delete(
+            self,
+            path: str = "/artemis/api/resource/v1/vehicle/batch/delete",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        批量删除车辆
+
+        根据车辆编码删除车辆。
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#b250bd27
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v2_vehicle_advance_vehicleList(
+            self,
+            path: str = "/artemis/api/resource/v2/vehicle/advance/vehicleList",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        查询车辆列表v2
+
+        查询车辆列表接口可以根据车牌号码、车主姓名、车辆类型、车牌类型、是否关联人员、车辆状态这些查询条件来进行高级查询；若不指定查询条件，即全量获取所有的车辆信息。返回结果分页展示。
+
+        注：若指定多个查询条件，表示将这些查询条件进行“与”的组合后进行精确查询
+
+        当一个车辆属于多个区域时，查询时会返回多条记录。
+
+        当返回字段对应的值为空时，该字段不返回。
+
+        综合安防管理平台iSecure Center V1.4及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#d3f8970f
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_park_parkList(
+            self,
+            path: str = "/artemis/api/resource/v1/park/parkList",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        获取停车库列表
+
+        根据停车场唯一标识集合获取停车库列表信息。
+
+        综合安防管理平台iSecure Center V1.0及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#d93e4991
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_park_search(
+            self,
+            path: str = "/artemis/api/resource/v1/park/search",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        查询停车库节点信息
+
+        查询停车库节点信息，支持同时查询多种类型的节点，用于异步展示停车、搜索等场景。
+
+        示例：
+        当parentIndexCode、parentResourceType传”123”，” parking”,时，resourceTypes传parking时返回停车库”123”下面的子库信息；
+
+        当parentIndexCode、parentResourceType传”123”，” parking”,时，resourceTypes传entrance时，返回停车库”123”下面的出入口；
+
+        当parentIndexCode、parentResourceType传”123”，” parking”,时，resourceTypes传parkFloor时，返回停车库”123”下面的楼层信息；
+
+        当parentIndexCode、parentResourceType传”123”，” parking”,时，resourceTypes传parking 、entrance、parkFloor时，同时返回停车库”123”下面的子库、出入口、楼层；
+
+        当parentIndexCode、parentResourceType传”456”，” entrance”,时，resourceTypes传rodaway返回出入口”456”下面的车道。
+
+        当返回字段对应的值为空时，该字段不返回。
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#c8512008
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_park_detail_get(
+            self,
+            path: str = "/artemis/api/resource/v1/park/detail/get",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        获取停车库节点详细信息
+
+        根据节点编号indexCode、类型查询节点详细信息。
+
+        当返回字段对应的值为空时，该字段不返回。
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#bdc1e803
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_entrance_entranceList(
+            self,
+            path: str = "/artemis/api/resource/v1/entrance/entranceList",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        获取出入口列表
+
+        根据节点编号indexCode、类型查询节点详细信息。
+
+        根据停车场唯一标识集合取指定的车入口信息
+
+        综合安防管理平台iSecure Center V1.0及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#e7828411
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_roadway_roadwayList(
+            self,
+            path: str = "/artemis/api/resource/v1/roadway/roadwayList",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        获取车道列表
+
+        根据出入口唯一标识集合获取车道信息
+
+        综合安防管理平台iSecure Center V1.0及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E8%BD%A6%E8%BE%86%E5%8F%8A%E8%BD%A6%E5%BA%93%E4%BF%A1%E6%81%AF#cb0db770
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_pms_v1_tempCarInRecords_page(
+            self,
+            path: str = "/artemis/api/pms/v1/tempCarInRecords/page",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        查询场内车停车信息
+
+        简述：场内车停车信息即为某一停车库或部分停车库内未出场车辆的信息，包括车牌号、车辆入场时间、车辆图片等，是用于停车场缴费、场内找车等业务的前置业务场景。
+
+        支持：支持通过停车库的唯一标识、车牌号码（模糊）、停车时长及停车库信息查询场内车停车信息。
+
+        综合安防管理平台iSecure Center V1.4及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%8A%9F%E8%83%BD#c4292e21
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_pms_v1_car_charge(
+            self,
+            path: str = "/artemis/api/pms/v1/car/charge",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        车辆充值
+
+        简述：车辆添加后，有临时车、固定车之分，充值包期后是固定车，未包期或包期过期的是临时车，车辆出场需要进行收费。
+
+        支持：支持通过车牌号进行特定停车场的包期充值。
+
+        综合安防管理平台iSecure Center V1.2及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%8A%9F%E8%83%BD#bc8e5872
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_pms_v1_car_charge_deletion(
+            self,
+            path: str = "/artemis/api/pms/v1/car/charge/deletion",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        取消车辆包期
+
+        简述：车辆取消包期后变为临时车，可以取消某个停车库的包期，也可以取消平台所有停车库下的包期。
+
+        支持：支持通过车牌号、停车库编号取消包期；停车库编号可为空，为空时取消平台所有包期。
+
+        综合安防管理平台iSecure Center V1.2及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%8A%9F%E8%83%BD#d95589de
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_pms_v1_car_charge_page(
+            self,
+            path: str = "/artemis/api/pms/v1/car/charge/page",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        查询车辆包期信息
+
+        简述：车辆包期后在当前停车场是固定车，自由进出场；在未包期的停车场进出场是临时车，需要收费。可通过此接口查询平台所有车辆或某个停车场里车辆的包期状态，便于展示车辆包期状态和是否固定车查询。
+
+        支持：支持通过车牌号、停车场编号分页查询车辆包期信息。
+
+        综合安防管理平台iSecure Center V1.4及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%BD%A6%E8%BE%86%E7%AE%A1%E6%8E%A7-%E5%81%9C%E8%BD%A6%E5%9C%BA%E5%8A%9F%E8%83%BD#bb7cb58c
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
