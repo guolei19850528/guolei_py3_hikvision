@@ -1888,3 +1888,512 @@ class Api(object):
             requests_request_args=requests_request_args,
             requests_request_kwargs=requests_request_kwargs
         )
+
+    def api_resource_v1_regions_root(
+            self,
+            path: str = "/artemis/api/resource/v1/regions/root",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        获取根区域信息
+
+        获取根区域信息。
+
+        综合安防管理平台iSecure Center V1.0及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3#b8deecfc
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_irds_v2_region_nodesByParams(
+            self,
+            path: str = "/artemis/api/irds/v2/region/nodesByParams",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        查询区域列表v2
+
+        根据查询条件查询区域列表信息，主要用于区域信息查询过滤。
+
+        相对V1接口，支持级联场景的区域查询。
+
+        当返回字段对应的值为空时，该字段不返回。
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3#c2fdda08
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v2_regions_subRegions(
+            self,
+            path: str = "/artemis/api/resource/v2/regions/subRegions",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        根据区域编号获取下一级区域列表v2
+
+        根据用户请求的资源类型和资源权限获取父区域的下级区域列表，主要用于逐层获取父区域的下级区域信息，例如监控点预览业务的区域树的逐层获取。下级区域只包括直接下级子区域。
+
+        注：查询区域管理权限（resourceType为region），若父区域的子区域无权限、但是其孙区域有权限时，会返回该无权限的子区域，但是该区域的available标记为false（表示无权限）
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3#cd531e45
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_regions(
+            self,
+            path: str = "/artemis/api/resource/v1/regions",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        分页获取区域列表
+
+        获取区域列表接口可用来全量同步区域信息，返回结果分页展示。
+
+        综合安防管理平台iSecure Center V1.0及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3#d0c1cc14
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_region_regionCatalog_regionInfo(
+            self,
+            path: str = "/artemis/api/resource/v1/region/regionCatalog/regionInfo",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        根据编号获取区域详细信息
+
+        根据区域编号查询区域详细信息及总条数，主要用于区域详细信息展示。
+
+        综合安防管理平台iSecure Center V1.4及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3#e8a9bcc2
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_region_batch_add(
+            self,
+            path: str = "/artemis/api/resource/v1/region/batch/add",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        批量添加区域
+
+        支持区域的批量添加。
+
+        三方可以自行指定区域的唯一标识，也可以由ISC平台自行生成。
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3#e21ca7e1
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_resource_v1_region_single_update(
+            self,
+            path: str = "/artemis/api/resource/v1/region/single/update",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        修改区域
+
+        根据区域标志修改区域信息
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95-%E5%8C%BA%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3#e0ef8bd3
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_acps_v1_auth_config_add(
+            self,
+            path: str = "/artemis/api/acps/v1/auth_config/add",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        添加权限配置
+
+        权限配置支持按组织、人员和设备通道配置权限，适用综合大楼、学校、医院等场景。
+
+        说明：权限配置数据采用异步分批入库方式，接口调用成功后返回权限配置单编号，在配置的过程中分批插入数据，只有当配置单结束时才能查询到完整的权限配置信息。相同的配置数据重复配置时，第一次配置生效后，后面相同的配置将自动过滤丢弃。
+
+        合作方配置的tagId用于让多个应用共用出入控制权限服务时，用以区分各自的配置信息。
+
+        注意点：不同业务组件设备通道隔离，应该根据业务场景使用不同的设备通道配置权限；如对相同的设备通道都有业务应用，那么人员隔离，应该根据场景使用不同的人员，否则会造成权限条目归属相互竞争的情况，在权限条目综合查询时，数据归属以最后一次入库配置为准。
+
+        单次接口最多支持1000个设备资源和1000个人员数据。
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E4%B8%80%E5%8D%A1%E9%80%9A%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1-%E4%B8%80%E5%8D%A1%E9%80%9A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86#b474b6a1
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_acps_v1_auth_config_delete(
+            self,
+            path: str = "/artemis/api/acps/v1/auth_config/delete",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        删除权限配置
+
+        根据人员数据、设备通道删除已配置的权限，合作方配置的tagId用于让多个应用共用出入控制权限服务时，用以区分各自的配置信息，即只能删除同一个tagId的权限配置信息。入参中人员数据、设备通道至少一个不为空。
+
+        综合安防管理平台iSecure Center V1.3及以上版本
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E4%B8%80%E5%8D%A1%E9%80%9A%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1-%E4%B8%80%E5%8D%A1%E9%80%9A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86#d92d9a46
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_acps_v1_auth_config_rate_search(
+            self,
+            path: str = "/artemis/api/acps/v1/auth_config/rate/search",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        查询权限配置单进度
+
+        根据配置单编号查询配置单的配置进度，只能查询组件自身创建的配置单。
+
+        建议该接口调用频率每3-5秒查询一次进度。
+
+        发布版本：V1.1.0
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E4%B8%80%E5%8D%A1%E9%80%9A%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1-%E4%B8%80%E5%8D%A1%E9%80%9A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86#c4c0fdcd
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_acps_v1_authConfig_configuration_extend(
+            self,
+            path: str = "/artemis/api/acps/v1/authConfig/configuration/extend",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        人员权限扩展参数配置
+
+        权限配置支持按人员和设备通道配置权限，适用人员权限有特殊参数需要下发的场景"
+
+        说明：权限配置数据采用异步分批入库方式，接口调用成功后返回权限配置单编号，可通过《查询权限配置进度》，在配置的过程中分批插入数据，只有当配置单结束时才能查询到完整的权限配置信息。
+
+        权限配置的预计时间：每10万配置数据大概30秒。（配置数据量：人员数据量*设备数据量）。
+
+        1、 相同的配置数据重复配置时，第一次配置生效后，后面相同的配置将自动过滤丢弃。
+
+        2、 在相同人员和设备通道多次配置时，权限有效期和计划模板信息以最后一次配置为准（比如：先对人员分组A与设备分组D1，D2配置了计划模板T1，有效期为day1的权限，再对人员分组A，B与设备分组D1配置计划模板t2，有效期为day2的权限，那么人员分组A与设备分组D1存在重复配置情况，最终人员分组A与设备分组D1的计划模板为t2，有效期为day2）；
+
+        3、 人员扩展参数变更后，相同的参数以最后一次为准，不同的参数会和以前的参数合并，第一次需要传入人员扩展参数初始化值，供权限删除时，设置设备上为初始化值。4、 在当前任务中设置回调地址，当配置完成时，通过回调地址主动通知调用方，采用restful回调模式，支持http和https，样式如下：http://ip:port/configRcv或者 https://ip:port/configRcv，建议业务组件在设置回调地址接收时，异步处理内部逻辑，避免请求超时（3秒超时）；该回调动作不管成功失败acps仅会触发一次，业务组件需要有对应的容错机制。
+
+        5、 tagId用于让多个应用共用出入控制权限服务时，用以区分各自的配置信息。建议使用组件标识。
+
+        注意点：不同业务组件设备通道隔离，应该根据业务场景使用不同的设备通道配置权限；如对相同的设备通道都有业务应用，那么人员隔离，应该根据场景使用不同的人员，否则会造成权限条目归属相互竞争的情况，在权限条目综合查询时，数据归属以最后一次入库配置为准。
+
+        发布版本：V1.5.0
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E4%B8%80%E5%8D%A1%E9%80%9A%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1-%E4%B8%80%E5%8D%A1%E9%80%9A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86#c08c0b12
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_acps_v1_authConfig_person_extend_setting(
+            self,
+            path: str = "/artemis/api/acps/v1/authConfig/person/extend/setting",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        人员权限全局扩展参数配置
+
+        1.支持根据人员配置全局扩展参数
+
+        2.删除人员权限扩展属性就是把属性置成默认值
+
+        发布版本：V1.5.0
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E4%B8%80%E5%8D%A1%E9%80%9A%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1-%E4%B8%80%E5%8D%A1%E9%80%9A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86#eb13beee
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_acps_v1_authConfig_person_extend_list(
+            self,
+            path: str = "/artemis/api/acps/v1/authConfig/person/extend/list",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        获取人员权限全局扩展参数
+
+        1.根据查询条件查询人员全局扩展参数
+
+        发布版本：V1.5.0
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E4%B8%80%E5%8D%A1%E9%80%9A%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1-%E4%B8%80%E5%8D%A1%E9%80%9A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86#bea08680
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_acps_v1_authConfig_personAuth_useStatus_configuration(
+            self,
+            path: str = "/artemis/api/acps/v1/authConfig/personAuth/useStatus/configuration",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        人员权限使用状态设置
+
+        设置人员权限的使用状态，默认人员权限使用状态为有效，当设置其他状态后可通过设置权限有效状态恢复"
+
+        针对智能锁设备，人员权限状态的禁用和有效对应智能锁的冻结解冻功能。
+
+        1、 该接口是异步操作的过程，接口仅返回数据接收成功，当下发结束时可根据权限下发记录查询章节接口查询下发结果。
+
+        2、 通过权限条目综合查询章节接口可获取人员的权限使用状态。
+
+        3、 tagId用于让多个应用共用出入控制权限服务时，用以区分各自的配置信息。建议使用组件标识。
+
+        4、 不支持系统外人员
+
+        发布版本：V1.5.0
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E4%B8%80%E5%8D%A1%E9%80%9A%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1-%E4%B8%80%E5%8D%A1%E9%80%9A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86#c0cf8171
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
+
+    def api_acps_v1_authConfig_personAuth_useStatus_list(
+            self,
+            path: str = "/artemis/api/acps/v1/authConfig/personAuth/useStatus/list",
+            requests_request_kwargs_json: dict = {},
+            requests_response_callable: Callable = RequestsResponseCallable.status_code_200_json_addict_code_0_data,
+            requests_request_args: Iterable = tuple(),
+            requests_request_kwargs: dict = {},
+    ):
+        """
+        获取人员权限使用状态
+
+        1.支持根据查询条件查询人员扩展信息
+
+        发布版本：V1.5.0
+
+        @see https://open.hikvision.com/docs/docId?productId=5c67f1e2f05948198c909700&version=%2Ff95e951cefc54578b523d1738f65f0a1&tagPath=API%E5%88%97%E8%A1%A8-%E4%B8%80%E5%8D%A1%E9%80%9A%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1-%E4%B8%80%E5%8D%A1%E9%80%9A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86#be5c3fac
+        :param path:
+        :param requests_request_kwargs_json:
+        :param requests_response_callable:
+        :param requests_request_args:
+        :param requests_request_kwargs:
+        :return:
+        """
+        return self.requests_request_with_json_post(
+            path=path,
+            requests_request_kwargs_json=requests_request_kwargs_json,
+            requests_response_callable=requests_response_callable,
+            requests_request_args=requests_request_args,
+            requests_request_kwargs=requests_request_kwargs
+        )
