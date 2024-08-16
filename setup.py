@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setup(
     name="guolei-py3-hikvision",
-    version="0.0.2",
+    version="0.0.3",
     description="海康威视 API",
     long_description=long_description,
     long_description_content_type="text/markdown",
