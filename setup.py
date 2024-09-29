@@ -20,8 +20,8 @@ setup(
     install_requires=[
         "addict",
         "retrying",
-        "pydantic",
         "guolei-py3-requests",
+        "jsonschema",
     ],
     python_requires='>=3.0',
     zip_safe=False
