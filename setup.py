@@ -18,9 +18,10 @@ setup(
     keywors=["海康威视", "hikvision"],
     packages=setuptools.find_packages('./'),
     install_requires=[
+        "guolei-py3-requests",
+        "requests",
         "addict",
         "retrying",
-        "guolei-py3-requests",
         "jsonschema",
     ],
     python_requires='>=3.0',
