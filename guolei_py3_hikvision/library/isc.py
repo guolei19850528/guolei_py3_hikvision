@@ -16,6 +16,8 @@ from datetime import datetime
 from typing import Callable
 
 import requests
+from addict import Dict
+from guolei_py3_requests.library import ResponseCallback, Request
 from jsonschema.validators import Draft202012Validator
 from requests import Response
 
@@ -24,14 +26,14 @@ class UrlSetting(object):
     pass
 
 
-class ResponseCallable(object):
+class ResponseCallback(ResponseCallback):
     """
     Response Callable Class
     """
 
     @staticmethod
     def json_code_0_data(response: Response = None, status_code: int = 200):
-        json_data = response.json() if response.status_code == status_code else dict()
+        json_addict = ResponseCallback.json_addict(response=response, status_code=status_code)
         if Draft202012Validator({
             "type": "object",
             "properties": {
@@ -43,18 +45,19 @@ class ResponseCallable(object):
                 },
             },
             "required": ["code", "data"]
-        }).is_valid(json_data):
-            return json_data.get("data", dict())
+        }).is_valid(json_addict):
+            return json_addict.data
         return None
 
 
-class Api(object):
-    def _init_(
+class Api(Request):
+    def __init__(
             self,
             host: str = "",
             ak: str = "",
             sk: str = "",
     ):
+        super().__init__()
         self._host = host
         self._ak = ak
         self._sk = sk
@@ -126,30 +129,7 @@ class Api(object):
         headers["x-ca-signature"] = self.signature(string=string)
         return headers
 
-    def get(self, on_response_callback: Callable = ResponseCallable.json_code_0_data, path: str = None,
-            **kwargs):
-        """
-        execute get by requests.get
-
-        headers.setdefault("Token", self.token_data.get("token", ""))
-
-        headers.setdefault("Companycode", self.token_data.get("companyCode", ""))
-
-        :param on_response_callback: response callback
-        :param path: if url is None: url=f"{self.host}{path}"
-        :param kwargs: requests.get(**kwargs)
-        :return: on_response_callback(response) or response
-        """
-        path = kwargs.get("url", None) or f"{self.host}{path}"
-        kwargs.update([
-            ("url", path),
-        ])
-        response = requests.get(**kwargs)
-        if isinstance(on_response_callback, Callable):
-            return on_response_callback(response)
-        return response
-
-    def post(self, on_response_callback: Callable = ResponseCallable.json_code_0_data, path: str = None,
+    def post(self, on_response_callback: Callable = ResponseCallback.json_code_0_data, path: str = None,
              **kwargs):
         """
         execute post by requests.post
@@ -163,85 +143,10 @@ class Api(object):
         :param kwargs: requests.get(**kwargs)
         :return: on_response_callback(response) or response
         """
-        path = kwargs.get("url", None) or f"{self.host}{path}"
-        kwargs.update([
-            ("url", path),
-        ])
-        response = requests.post(**kwargs)
-        if isinstance(on_response_callback, Callable):
-            return on_response_callback(response)
-        return response
-
-    def put(self, on_response_callback: Callable = ResponseCallable.json_code_0_data, path: str = None,
-            **kwargs):
-        """
-        execute put by requests.put
-
-        headers.setdefault("Token", self.token_data.get("token", ""))
-
-        headers.setdefault("Companycode", self.token_data.get("companyCode", ""))
-
-        :param on_response_callback: response callback
-        :param path: if url is None: url=f"{self.host}{path}"
-        :param kwargs: requests.get(**kwargs)
-        :return: on_response_callback(response) or response
-        """
-        path = kwargs.get("url", None) or f"{self.host}{path}"
-        kwargs.update([
-            ("url", path),
-        ])
-        response = requests.put(**kwargs)
-        if isinstance(on_response_callback, Callable):
-            return on_response_callback(response)
-        return response
-
-    def request(self, on_response_callback: Callable = ResponseCallable.json_code_0_data, path: str = None,
-                **kwargs):
-        """
-        execute request by requests.request
-
-        headers.setdefault("Token", self.token_data.get("token", ""))
-
-        headers.setdefault("Companycode", self.token_data.get("companyCode", ""))
-
-        :param on_response_callback: response callback
-        :param path: if url is None: url=f"{self.host}{path}"
-        :param kwargs: requests.get(**kwargs)
-        :return: on_response_callback(response) or response
-        """
-        path = kwargs.get("url", None) or f"{self.host}{path}"
-        kwargs.update([
-            ("url", path),
-        ])
-        response = requests.request(**kwargs)
-        if isinstance(on_response_callback, Callable):
-            return on_response_callback(response)
-        return response
-
-    def post_json(self, on_response_callback: Callable = ResponseCallable.json_code_0_data, path: str = None,
-                  **kwargs):
-        """
-        execute post by requests.post
-
-        headers.setdefault("Token", self.token_data.get("token", ""))
-
-        headers.setdefault("Companycode", self.token_data.get("companyCode", ""))
-
-        :param on_response_callback: response callback
-        :param path: if url is None: url=f"{self.host}{path}"
-        :param kwargs: requests.get(**kwargs)
-        :return: on_response_callback(response) or response
-        """
+        kwargs = Dict(kwargs)
         kwargs.setdefault("verify", False)
         kwargs.setdefault("timeout", (120, 120))
-        headers = kwargs.get("headers", dict())
+        headers = kwargs.get("headers", Dict())
         headers = self.headers(method="POST", path=path, headers=headers)
-        path = kwargs.get("url", None) or f"{self.host}{path}"
-        kwargs.update([
-            ("headers", headers),
-            ("url", path),
-        ])
-        response = requests.post(**kwargs)
-        if isinstance(on_response_callback, Callable):
-            return on_response_callback(response)
-        return response
+        kwargs.setdefault("headers", headers)
+        return super().post(on_response_callback=on_response_callback, url=f"{self.host}{path}", **kwargs.to_dict())
